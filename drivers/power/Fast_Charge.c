@@ -37,7 +37,7 @@ static ssize_t custom_current_store(struct kobject *kobj, struct kobj_attribute 
 {
 	int inputcurrent;
 	sscanf(buf, "%d", &inputcurrent);
-	if(FC_Switch == 1 && inputcurrent <= 2510 && inputcurrent >= 100)
+	if(FC_Switch == 1 && inputcurrent <= 3000 && inputcurrent >= 100)
 		custom_current = inputcurrent;
 	else
 		custom_current = 2500;
