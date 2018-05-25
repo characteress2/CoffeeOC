@@ -2,6 +2,10 @@
 export ARCH=arm64
 export SUBARCH=arm64
 export CROSS_COMPILE="${HOME}/gcc-prebuilts/bin/aarch64-linux-gnu-"
+export CC="${HOME}/clang/bin/clang"
+export CLANG_TRIPLE="aarch64-linux-gnu-"
+export KBUILD_COMPILER_STRING="Clang-7.0"
+
 z2_plus(){
 zipname="(z2_plus)Nameless Kernel[Treble] Rx.zip"
 export KBUILD_BUILD_USER="z2_plus"
@@ -31,12 +35,6 @@ zip -r "$zipname" *
 cp -f "$zipname" ~
 rm -f "$zipname"
 }
-
-if [ "$2" == clang ]
-then
-export CC="${HOME}/clang/bin/clang"
-export CLANG_TRIPLE="aarch64-linux-gnu-"
-fi
 
 if [ "$1" == z2_plus ]
 then
