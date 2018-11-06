@@ -542,6 +542,100 @@
 		qcom,target-dev = <&cpubw>;
 	};
 
+	mincpubw: qcom,mincpubw {
+		compatible = "qcom,devbw";
+		governor = "powersave";
+		qcom,src-dst-ports = <1 512>;
+		qcom,active-only;
+		qcom,bw-tbl =
+			<   762 /*  100 MHz */ >,
+			<  1144 /*  150 MHz */ >,
+			<  1525 /*  200 MHz */ >,
+			<  2288 /*  300 MHz */ >,
+			<  3143 /*  412 MHz */ >,
+			<  4173 /*  547 MHz */ >,
+			<  5195 /*  681 MHz */ >,
+			<  5859 /*  768 MHz */ >,
+			<  7759 /* 1017 MHz */ >,
+			<  9887 /* 1296 MHz */ >,
+			< 11863 /* 1555 MHz */ >,
+			< 13763 /* 1804 MHz */ >;
+	};
+
+	memlat_cpu0: qcom,memlat-cpu0 {
+		compatible = "qcom,devbw";
+		governor = "powersave";
+		qcom,src-dst-ports = <1 512>;
+		qcom,active-only;
+		qcom,bw-tbl =
+			<  1525 /* 200 MHz */ >,
+			<  2288 /* 300 MHz */ >,
+			<  3509 /* 460 MHz */ >,
+			<  4066 /* 533 MHz */ >,
+			<  5126 /* 672 MHz */ >,
+			<  5928 /* 777 MHz */ >,
+			<  7904 /* 1036 MHz */ >,
+			<  9887 /* 1296 MHz */ >,
+			< 11863 /* 1555 MHz */ >,
+			< 13763 /* 1804 MHz */ >;
+	};
+
+	memlat_cpu2: qcom,memlat-cpu2 {
+		compatible = "qcom,devbw";
+		governor = "powersave";
+		qcom,src-dst-ports = <1 512>;
+		qcom,active-only;
+		qcom,bw-tbl =
+			<  1525 /* 200 MHz */ >,
+			<  2288 /* 300 MHz */ >,
+			<  3509 /* 460 MHz */ >,
+			<  4066 /* 533 MHz */ >,
+			<  5126 /* 672 MHz */ >,
+			<  5928 /* 777 MHz */ >,
+			<  7904 /* 1036 MHz */ >,
+			<  9887 /* 1296 MHz */ >,
+			< 11863 /* 1555 MHz */ >,
+			< 13763 /* 1804 MHz */ >;
+	};
+
+	qcom,arm-memlat-mon-0 {
+		compatible = "qcom,arm-memlat-mon";
+		qcom,cpulist =	<&CPU0 &CPU1>;
+		qcom,target-dev = <&memlat_cpu0>;
+		status = "disabled";
+	};
+
+	qcom,arm-memlat-mon-2 {
+		compatible = "qcom,arm-memlat-mon";
+		qcom,cpulist =	<&CPU2 &CPU3>;
+		qcom,target-dev = <&memlat_cpu2>;
+		status = "disabled";
+	};
+
+	devfreq_compute0: qcom,devfreq-compute0 {
+		compatible = "qcom,arm-cpu-mon";
+		qcom,cpulist = <&CPU0 &CPU1>;
+		qcom,target-dev = <&mincpubw>;
+		qcom,core-dev-table =
+			<  307200 1525 >,
+			<  480000 3509 >,
+			< 1113600 5928 >,
+			< 1593600 7904 >;
+	};
+
+	devfreq_compute2: qcom,devfreq-compute2 {
+		compatible = "qcom,arm-cpu-mon";
+		qcom,cpulist = <&CPU2 &CPU3>;
+		qcom,target-dev = <&mincpubw>;
+		qcom,core-dev-table =
+			<  300000  1525 >,
+			<  480000  3509 >,
+			< 1036800  4066 >,
+			< 1296000  9887 >,
+			< 1555000 11863 >,
+			< 1824000 13763 >;
+	};
+
 	devfreq_cpufreq: devfreq-cpufreq {
 		cpubw-cpufreq {
 			target-dev = <&cpubw>;
