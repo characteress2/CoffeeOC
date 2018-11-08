@@ -35,7 +35,7 @@
 
 #define UNTHROTTLE_ZONE (-1)
 
-#define DEFAULT_SAMPLING_MS 3000
+#define DEFAULT_SAMPLING_MS 1000
 
 /* Max possible is currently 100 (0-99 => two digits) */
 #define NR_THERMAL_ZONES 16
