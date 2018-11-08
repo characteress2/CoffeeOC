@@ -498,6 +498,7 @@ config QPNP_CHARGER
 
 config QPNP_SMBCHARGER
 	tristate "QPNP SMB Charger driver"
+	default y
 	depends on SPMI || MSM_SPMI
 	depends on OF_SPMI
 	help
@@ -518,7 +519,7 @@ config QPNP_SMB2
 
 config FUELGAUGE_STC3117
 	tristate "STC3117 fuel gauge driver"
-	default n
+	default y
 	depends on I2C
 	help
 	  Say Y to include support
@@ -635,6 +636,12 @@ config MSM_BCL_PERIPHERAL_CTL
 	  Say Y here to enable this BCL PMIC peripheral driver. This driver
 	  provides routines to configure and monitor the BCL
 	  PMIC peripheral.
+	  
+config MSM_BCL_SOMC_CTL
+	bool "BCL driver to control with new condition"
+	depends on BATTERY_BCL
+	help
+	  Say Y here to enable new condition.
 
 config FAST_CHARGE
        bool "Enable Fast Charge"
