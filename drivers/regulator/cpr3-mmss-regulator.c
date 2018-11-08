@@ -178,24 +178,24 @@ enum msm8996_cpr_limitation {
 
 /* Open loop voltage fuse reference voltages in microvolts */
 static const int msm8996_mmss_fuse_ref_volt[MSM8996_MMSS_FUSE_CORNERS] = {
-	670000,
-	745000,
-	905000,
-	1015000,
+	660000,
+	665000,
+	825000,
+	1000000,
 };
 
 static const int msm8996pro_mmss_fuse_ref_volt[MSM8996_MMSS_FUSE_CORNERS] = {
 	670000,
-	745000,
-	905000,
-	1065000,
+	665000,
+	825000,
+	1035000,
 };
 
 static const int msmcobalt_mmss_fuse_ref_volt[MSM8996_MMSS_FUSE_CORNERS] = {
 	632000,
-	768000,
-	896000,
-	1032000,
+	688000,
+	816000,
+	1010000,
 };
 
 #define MSM8996_MMSS_FUSE_STEP_VOLT		10000
