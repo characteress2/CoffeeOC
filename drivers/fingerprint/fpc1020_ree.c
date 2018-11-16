@@ -29,7 +29,6 @@
 #include <linux/io.h>
 #include <linux/of_gpio.h>
 #include <linux/input.h>
-#include <linux/state_notifier.h>
 
 #define FPC1020_TOUCH_DEV_NAME  "fpc1020tp"
 
